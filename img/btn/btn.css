@@ -1,0 +1,231 @@
+@charset "utf-8";
+	.image
+{
+	background-image : url(image.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 590px;
+	top : 463px;
+	width : 91px;
+	height : 91px;
+}
+.image1
+{
+	background-image : url(image1.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 435px;
+	top : 836px;
+	width : 178px;
+	height : 79px;
+}
+.image2
+{
+	background-image : url(image2.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 252px;
+	top : 836px;
+	width : 168px;
+	height : 79px;
+}
+.image3
+{
+	background-image : url(image3.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 611px;
+	top : 836px;
+	width : 168px;
+	height : 79px;
+}
+.image4
+{
+	background-image : url(image4.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 608px;
+	top : 653px;
+	width : 114px;
+	height : 124px;
+}
+.image5
+{
+	background-image : url(image5.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 306px;
+	top : 670px;
+	width : 133px;
+	height : 90px;
+}
+.image17
+{
+	background-image : url(image17.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 328px;
+	top : 181px;
+	width : 108px;
+	height : 108px;
+}
+.image12
+{
+	background-image : url(image12.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 244px;
+	top : 353px;
+	width : 92px;
+	height : 92px;
+}
+.image8
+{
+	background-image : url(image8.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 240px;
+	top : 465px;
+	width : 127px;
+	height : 83px;
+}
+.image14
+{
+	background-image : url(image14.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 580px;
+	top : 353px;
+	width : 91px;
+	height : 92px;
+}
+.image7
+{
+	background-image : url(image7.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 202px;
+	top : 624px;
+	width : 626px;
+	height : 184px;
+}
+.image9
+{
+	background-image : url(image9.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 387px;
+	top : 463px;
+	width : 91px;
+	height : 91px;
+}
+.image16
+{
+	background-image : url(image16.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 691px;
+	top : 353px;
+	width : 92px;
+	height : 92px;
+}
+.image10
+{
+	background-image : url(image10.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 488px;
+	top : 463px;
+	width : 92px;
+	height : 91px;
+}
+.image13
+{
+	background-image : url(image13.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 356px;
+	top : 353px;
+	width : 92px;
+	height : 92px;
+}
+.image6
+{
+	background-image : url(image6.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 480px;
+	top : 652px;
+	width : 97px;
+	height : 126px;
+}
+.image11
+{
+	background-image : url(image11.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 691px;
+	top : 463px;
+	width : 92px;
+	height : 91px;
+}
+.image15
+{
+	background-image : url(image15.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 468px;
+	top : 353px;
+	width : 91px;
+	height : 92px;
+}
+.image21
+{
+	background-image : url(image21.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 201px;
+	top : 326px;
+	width : 629px;
+	height : 268px;
+}
+.image19
+{
+	background-image : url(image19.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 455px;
+	top : 181px;
+	width : 108px;
+	height : 108px;
+}
+.image18
+{
+	background-image : url(image18.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 582px;
+	top : 181px;
+	width : 108px;
+	height : 108px;
+}
+.image20
+{
+	background-image : url(image20.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 210px;
+	top : 68px;
+	width : 607px;
+	height : 83px;
+}
+.image22
+{
+	background-image : url(image22.png);
+	background-repeat : no-repeat;
+	position : absolute ;
+	left : 122px;
+	top : 28px;
+	width : 790px;
+	height : 936px;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meme Generator</title>
+  <link rel="stylesheet" href="css\style.css">
+  <link rel="icon" href="./img/fav-icon-02.png" type="image/gif" sizes="16x16">
+</head>
+
+<body onload="onInit()">
+  <div class="main-screen" onclick="toggleMenu()"></div>
+  <nav class="nav-bar ">
+    <div class="logo">Memegen</div>
+    <ul class="nav-bar-pages main-nav">
+      <li onclick="onGoToGallery(), toggleMenu()">Gallery</li>
+      <li onclick="onGoToEdit(), toggleMenu()">Edit</li>
+      <li onclick="onGoToMyMemes(),toggleMenu()">My Memes</li>
+    </ul>
+    <button class="btn-menu" onclick="toggleMenu()"><img src="./img/btn/hamburger-01.svg" height="20" /></button>
+  </nav>
+  <div class="gallery-header">
+    <h3>Welcome to Memes Generator</h3>
+    <p>You can create beautiful meme with The best technology</p>
+    <h4 class="start">Click on Image to start</h4>
+  </div>
+  <div class="gallery"></div>
+  </div>
+
+  <div class="edit-meme">
+    <div class="settings">
+      <!-- **section1** -->
+      <section class="section-1">
+        <div class="input">
+          <input class="input-txt" type="text" id="text" value="" placeholder="Write here your meme..." name="input-txt"
+            onkeyup="onSetText(this.value)">
+        </div>
+      </section>
+      <!-- **section2** -->
+      <section class="section-2">
+        <button onclick="onAddLine()"><img src=".\img\btn\image19.png" height="70" /></button>
+        <button onclick="onDeleteLine()"><img src=".\img\btn\image18.png" height="70" /></button>
+        <button onclick="onMoveLine()"><img src=".\img\btn\image17.png" height="70" /></button>
+      </section>
+
+      <!-- **section3** -->
+      <section class="section-3">
+        <button onclick="onSetAlign('left')"><img src="img\btn\image15.png" height="60" /></button>
+        <button onclick="onSetAlign('center')"><img src="img\btn\image14.png" height="60" /></button>
+        <button onclick="onSetAlign('right')"><img src="img\btn\image16.png" height="60" /></button>
+        <button onclick="onResizeTxt(10)"><img src="img\btn\image13.png" height="60" /></button>
+        <button onclick="onResizeTxt(-10)"> <img src="img\btn\image12.png" height="60" /></button>
+        <button onclick="onSetLineHight(10)"><img src="img\btn\image.png" height="60" /></button>
+        <button onclick="onSetLineHight(-10)"><img src="img\btn\image11.png" height="60" /></button>
+        <div class="select-color">
+          <img class="select-color-img" src="img\btn\image10.png" height="60" />
+          <input class="input-color" type="color" value="#ffffff" onchange="onSetColorText(this.value)">
+          <img class="select-stroke-img" src="img\btn\image9.png" height="60" />
+          <button><input class="input-sroke" type="color" value="#ffffff"
+              onchange="onSetColorStroke(this.value)"></button>
+        </div>
+      </section>
+      <!-- **section4** -->
+      <section class="section-4">
+        <div class="download">
+          <a href="#" onclick="downloadCanvas(this)" download="asdsad"><img src="img\btn\image1.png" height="60" /></a>
+        </div>
+        <div class="save">
+          <a href="#" onclick="onSaveCanvas()"><img src="img\btn\image3.png" height="60" /></a>
+        </div>
+      </section>
+      <section></section>
+    </div class="canvas-container">
+    <div class="meme-canvas">
+      <canvas id="canvas" height="430" width="430"></canvas>
+    </div>
+  </div>
+<div class="my-memes">
+
+<h3>hello</h3>
+
+
+
+</div>
+
+  <script src="js\storage-service.js"></script>
+  <script src="js\memeService.js"></script>
+  <script src="js\controler.js"></script>
+</body>
+
+</html>
