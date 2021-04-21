@@ -1,8 +1,9 @@
 `use strict`
 var gImg;
-var gMeme;
+var gCorentMeme;
 var gCanvas;
 var gCtx;
+var dataURL;
 
 var gAlign = {
   'center': 100,
@@ -12,6 +13,8 @@ var gAlign = {
 
 function onInit() {
   renderGallery()
+  renderMyMemes()
+
 }
 
 function renderGallery() {
@@ -36,8 +39,8 @@ function renderCanvas() {
   gCtx = gCanvas.getContext('2d');
 
   gCtx.drawImage(gImg, 0, 0, gCanvas.width, gCanvas.height)
-  console.log(gImg)
-  gMeme.lines.forEach((line) => {
+
+  gCorentMeme.lines.forEach((line) => {
     gCtx.lineWidth = 1.5;
     gCtx.strokeStyle = line.stroke;
     gCtx.fillStyle = line.color;
@@ -46,12 +49,15 @@ function renderCanvas() {
     gCtx.fillText(line.txt, cordX, line.linehight);
     gCtx.strokeText(line.txt, cordX, line.linehight);
   });
+  dataURL = gCanvas.toDataURL("image/jpeg");
 
 }
 
+
+
 function renderSetting() {
   var strHtmls = `
-    <input class="input-txt" type="text" id="text" value="${gMeme.lines[gMeme.selectedLineIdx].txt}" onkeyup="onSetText(this.value)">
+    <input class="input-txt" type="text" id="text" value="${gCorentMeme.lines[gCorentMeme.selectedLineIdx].txt}" onkeyup="onSetText(this.value)">
     `
   document.querySelector('.input').innerHTML = strHtmls;
 }
@@ -59,7 +65,7 @@ function renderSetting() {
 function onCreateMeme(elMemeId) {
   gImg = document.getElementById(`${elMemeId}`);
   createMeme(elMemeId);
-  gMeme = getMeme();
+  gCorentMeme = getMeme();
   renderCanvas()
   onGoToEdit();
 }
@@ -142,7 +148,7 @@ function onDeleteLine() {
 }
 
 function addRect() {
-  var line = gMeme.lines[gMeme.selectedLineIdx];
+  var line = gCorentMeme.lines[gCorentMeme.selectedLineIdx];
   cordX = gAlign[line.align];
   var width = gCtx.measureText(line.txt).width;
   gCtx.strokeRect(cordX - 20, line.linehight - line.size, width + 40, line.size + 20);
@@ -153,8 +159,8 @@ function toggleMenu() {
 }
 function onSaveCanvas() {
   saveCanvas()
+  renderMyMemes()
 }
-
 
 
 function getImageByMemeId(memeId) {
@@ -162,34 +168,125 @@ function getImageByMemeId(memeId) {
     return (memeId === img.id)
 
   })
-  return document.getElementById(`${img.id}`);
+  return img.url;
 }
 
-
-
-
-renderMyMemes()
 function renderMyMemes() {
-  var strHtmls = `
-  <canvas  id="new-canvas" height="250" width="250"></canvas>
-  `
-  document.querySelector('.my-memes').innerHTML = strHtmls;
-  var newMemeCanvas = document.getElementById('new-canvas');
-  var ctx = newMemeCanvas.getContext('2d');
-  var curentImage = getImageByMemeId(1);
- ;
-  // ctx.drawImage(curentImage, 0, 0, 5, 5);
-  
-     gMeme.lines.forEach((line) => {
-     ctx.lineWidth = 1.5;
-     ctx.strokeStyle = line.stroke;
-    ctx.fillStyle = line.color;
-     ctx.font = `${line.size}px impact`;
-     var cordX = gAlign[line.align];
-     ctx.fillText(line.txt, cordX, line.linehight);
-     ctx.strokeText(line.txt, cordX, line.linehight);
-   });
+var savedMems=loadFromStorage('url');
+var strHtmls=savedMems.map((savedUrl,idx) => {
+  var img=new Image();
+  img.onload=function(){
+      context.drawImage(img,0,0);
+  }
+  img.src=savedUrl;
+  return `
+  <img class="meme-image" crossorigin="anonymous" onclick="onEditSavedMeme('${idx}')" src="${img.src}">
+    `
+})
+  document.querySelector('.my-memes').innerHTML = strHtmls.join('');
 }
+
+ function onEditSavedMeme(sevedMemeIdx){
+  var savedMems=loadFromStorage('memes');
+  gCorentMeme = savedMems[sevedMemeIdx];
+  setGmeme(gCorentMeme);
+  renderCanvas();
+  onGoToEdit();
+}
+
+
+
+// function renderMyMemes() {
+
+
+//   var img = new Image();
+//   img.onload = function () {
+//     context.drawImage(img, 0, 0);
+//   }
+//   img.src = loadFromStorage('memes');
+
+//   var memes = img.src
+//   var strHtmls = memes.map(function (meme) {
+//     return `  
+//     <div class="img-box">
+//     <img class="meme-image" src="${meme.url}" id="${meme.id}" onclick="onCreateMeme('${meme.id}')">
+//       <div class="transparent-box" onclick="onCreateMeme('${meme.id}')">
+//         <div class="caption">
+//           <p class="opacity-low">${meme.keywords}</p>
+//         </div>
+//       </div>
+//       </div>
+//     `
+//   }
+//  document.querySelector('.my-memes').innerHTML = strHtmls;
+
+//   )
+
+
+
+
+
+
+
+
+// <div class="img-box">
+// <img class="meme-image" src="${meme.url}" id="${meme.id}" onclick="onCreateMeme('${meme.id}')">
+//   <div class="transparent-box" onclick="onCreateMeme('${meme.id}')">
+//     <div class="caption">
+//       <p class="opacity-low">${meme.keywords}</p>
+//     </div>
+//   </div>
+//   </div>
+
+
+
+
+// function getImageByMemeId(memeId) {
+//   var img = gImgs.find(function (img) {
+//     return (memeId === img.id)
+
+//   })
+//   return document.getElementById(`${img.id}`);
+// }
+
+
+// function renderMyMemes() {
+//   var memes = getgCorentMeme()
+
+//     var strHtmls = memes.map(function (meme) {
+//       return `  
+//       <div class="img-box">
+//       <img class="meme-image" src="${dataURL}" id="${meme.id}" onclick="onCreateMeme('${meme.id}')">
+//         <div class="transparent-box" onclick="onCreateMeme('${meme.id}')">
+//           <div class="caption">
+//             <p class="opacity-low">${meme.keywords}</p>
+//           </div>
+//         </div>
+//         </div>
+//       `
+//     }
+
+  // var strHtmls = `
+  // <img class="meme-image" src=".\img\btn\image19.png"  id="${meme.id}" onclick="onCreateMeme('${meme.id}')">
+  // `
+  // document.querySelector('.my-memes').innerHTML = strHtmls;
+  // var newMemeCanvas = document.getElementById('new-canvas');
+  // var ctx = newMemeCanvas.getContext('2d');
+  // console.log(ctx)
+  // var curentImage = getImageByMemeId(1);
+  // ;
+  // ctx.drawImage(curentImage, 0, 0, 5, 5);
+
+  //    gCorentMeme.lines.forEach((line) => {
+  //    ctx.lineWidth = 1.5;
+  //    ctx.strokeStyle = line.stroke;
+  //   ctx.fillStyle = line.color;
+  //    ctx.font = `${line.size}px impact`;
+  //    var cordX = gAlign[line.align];
+  //    ctx.fillText(line.txt, cordX, line.linehight);
+  //    ctx.strokeText(line.txt, cordX, line.linehight);
+  //  });
+
 
 
 

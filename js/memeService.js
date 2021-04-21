@@ -1,8 +1,8 @@
 `use strict`
 
 var gMemes = [];
-var gStoredImgs = [];
-
+var gStoredImgs =[];
+var gStoredUrl=[];
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 var gImgs = [
   { id: 1, url: './img/meme-imgs/1.jpg', keywords: ['trump'] },
@@ -26,6 +26,7 @@ var gImgs = [
 
 ];
 var gMeme = {};
+
 function createMemes(meme) {
   gMemes.push(meme)
 }
@@ -112,23 +113,21 @@ function setLineHight(elLineHight) {
 }
 
 function saveCanvas() {
+  if(loadFromStorage('memes')) gStoredImgs =loadFromStorage('memes');
+  if(loadFromStorage('url')) gStoredUrl=loadFromStorage('url');
+  gStoredUrl.push(dataURL);
   gStoredImgs.push(gMeme);
-  console.dir(gStoredImgs);
-  saveToStorage('memes', gStoredImgs)
+  saveToStorage('url',gStoredUrl)
+  saveToStorage('memes',gStoredImgs)
 }
 
 
-
-function getImageByMemeId(memeId) {
-  var img = gImgs.find(function (img) {
-    return (memeId === img.id)
-   
-  })
-  return img.id
+function setGmeme(elMeme){
+gMeme=elMeme
 }
 
 
 
 
 
-// `<img class="meme-image" src="${img.url}" id="${img.id}" onclick="onCreateMeme('${img.id}')">`
+

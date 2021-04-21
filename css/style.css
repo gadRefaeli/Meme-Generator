@@ -23,6 +23,7 @@
   display: none;
 }
 
+
 ul {
   list-style: none;
   font-family: regular;
@@ -51,9 +52,10 @@ button {
 p {
   padding-top: 5px;
   font-family: regular;
-  font-size: 23px;
+  font-size: 20px;
   color: white;
   text-align: center;
+  line-height: 5px;
 }
 
 h3 {
@@ -194,6 +196,13 @@ h3 {
   position: absolute;
   border-radius: 10%;
 }
+#new-canvas {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+
 
 .nav-bar {
   display: flex;
@@ -234,6 +243,21 @@ h3 {
   transform: scale(1.0);
   transition: transform 0.4s ease;
 }
+.my-memes {
+  padding: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  display: none;
+}
+
+.my-memes img {
+  height: 250px;
+  width: 250px;
+  transform: scale(1.0);
+  transition: transform 0.4s ease;
+}
+
 
 .img-box {
   box-sizing: content-box;
@@ -499,6 +523,7 @@ h3 {
     margin-top: -20px;
     font-size: 20px;
     padding: 20px;
+    line-height: 25px;
   }
   .start {
     margin-top: -10px;
