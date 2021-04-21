@@ -1,8 +1,7 @@
 `use strict`
-
 var gMemes = [];
-var gStoredImgs =[];
-var gStoredUrl=[];
+var gStoredImgs = [];
+var gStoredUrl = [];
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 var gImgs = [
   { id: 1, url: './img/meme-imgs/1.jpg', keywords: ['trump'] },
@@ -26,7 +25,6 @@ var gImgs = [
 
 ];
 var gMeme = {};
-
 function createMemes(meme) {
   gMemes.push(meme)
 }
@@ -51,44 +49,33 @@ function createMeme(id) {
 function getImages() {
   return gImgs;
 }
-
-
 function getMeme() {
   return gMeme;
 }
-
 function setSelectedImgId(id) {
   gMeme.selectedImgId = id;
 }
-
 function setText(elTxt) {
   gMeme.lines[gMeme.selectedLineIdx].txt = elTxt;
 }
-
-
 function setAlign(elAlign) {
   gMeme.lines[gMeme.selectedLineIdx].align = elAlign;
 
 }
-
 function setTxtSize(diff) {
   gMeme.lines[gMeme.selectedLineIdx].size += diff;
 }
-
-
 function setColorText(elColor) {
   gMeme.lines[gMeme.selectedLineIdx].color = elColor;
 }
-
 function setColorStroke(elColor) {
   gMeme.lines[gMeme.selectedLineIdx].stroke = elColor;
 }
-
 function addLine() {
   var newLine = {
     txt: '',
     size: 50,
-    align: 'left',
+    align: 'center',
     color: '#ffffff',
     stroke: 'black',
     linehight: 50
@@ -99,35 +86,28 @@ function addLine() {
 function deleteLine() {
   gMeme.lines.splice(gMeme.selectedLineIdx, gMeme.selectedLineIdx + 1);
 }
-
-
 function moveLine() {
   if (gMeme.selectedLineIdx < gMeme.lines.length - 1) {
     gMeme.selectedLineIdx++;
   } else gMeme.selectedLineIdx = 0;
-
 }
-
 function setLineHight(elLineHight) {
   gMeme.lines[gMeme.selectedLineIdx].linehight += elLineHight;
 }
-
 function saveCanvas() {
-  if(loadFromStorage('memes')) gStoredImgs =loadFromStorage('memes');
-  if(loadFromStorage('url')) gStoredUrl=loadFromStorage('url');
+  if (loadFromStorage('memes')) gStoredImgs = loadFromStorage('memes');
+  if (loadFromStorage('url')) gStoredUrl = loadFromStorage('url');
   gStoredUrl.push(dataURL);
   gStoredImgs.push(gMeme);
-  saveToStorage('url',gStoredUrl)
-  saveToStorage('memes',gStoredImgs)
+  saveToStorage('url', gStoredUrl)
+  saveToStorage('memes', gStoredImgs)
 }
-
-
-function setGmeme(elMeme){
-gMeme=elMeme
+function setGmeme(elMeme) {
+  gMeme = elMeme
 }
-
-
-
-
-
-
+function getImageByMemeId(memeId) {
+  var img = gImgs.find(function (img) {
+    return (memeId === img.id)
+  })
+  return img.url;
+}

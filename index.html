@@ -13,7 +13,7 @@
 <body onload="onInit()">
   <div class="main-screen" onclick="toggleMenu()"></div>
   <nav class="nav-bar ">
-    <div class="logo">Memegen</div>
+    <div class="logo" onclick="onGoToGallery()"">Memegen</div>
     <ul class="nav-bar-pages main-nav">
       <li onclick="onGoToGallery(), toggleMenu()">Gallery</li>
       <li onclick="onGoToEdit(), toggleMenu()">Edit</li>
@@ -31,21 +31,20 @@
 
   <div class="edit-meme">
     <div class="settings">
-      <!-- **section1** -->
+
       <section class="section-1">
         <div class="input">
           <input class="input-txt" type="text" id="text" value="" placeholder="Write here your meme..." name="input-txt"
             onkeyup="onSetText(this.value)">
         </div>
       </section>
-      <!-- **section2** -->
+
       <section class="section-2">
         <button onclick="onAddLine()"><img src=".\img\btn\image19.png" height="70" /></button>
         <button onclick="onDeleteLine()"><img src=".\img\btn\image18.png" height="70" /></button>
         <button onclick="onMoveLine()"><img src=".\img\btn\image17.png" height="70" /></button>
       </section>
 
-      <!-- **section3** -->
       <section class="section-3">
         <button onclick="onSetAlign('left')"><img src="img\btn\image15.png" height="60" /></button>
         <button onclick="onSetAlign('center')"><img src="img\btn\image14.png" height="60" /></button>
@@ -62,10 +61,19 @@
               onchange="onSetColorStroke(this.value)"></button>
         </div>
       </section>
-      <!-- **section4** -->
+
       <section class="section-4">
         <div class="download">
           <a href="#" onclick="downloadCanvas(this)" download="asdsad"><img src="img\btn\image1.png" height="60" /></a>
+        </div>
+        <div class="share">
+          <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+            <input name="img" id="imgData" type="hidden" />
+            <button class="btn" type="submit"><img src="img\btn\image2.png" height="60" /></button>
+            <div class="share-container"></div>
+          </form>
+
+          <a href="#" onclick="uploadImg(this, event)"></a>
         </div>
         <div class="save">
           <a href="#" onclick="onSaveCanvas()"><img src="img\btn\image3.png" height="60" /></a>
@@ -77,13 +85,11 @@
       <canvas id="canvas" height="430" width="430"></canvas>
     </div>
   </div>
-<div class="my-memes">
-<h3>hello</h3>
+  <div class="my-memes">
+  </div>
 
 
-
-</div>
-
+  <script src="js\upload-service.js"></script>
   <script src="js\storage-service.js"></script>
   <script src="js\memeService.js"></script>
   <script src="js\controler.js"></script>
