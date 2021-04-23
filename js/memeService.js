@@ -111,3 +111,10 @@ function getImageByMemeId(memeId) {
   })
   return img.url;
 }
+
+function deleteMeme(memeIdx){
+    gStoredUrl.splice(memeIdx,1);
+    gStoredImgs.splice(memeIdx,1);
+    saveToStorage('url', gStoredUrl);
+    saveToStorage('memes', gStoredImgs);
+}

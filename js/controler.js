@@ -56,13 +56,24 @@ function renderSetting() {
 }
 function renderMyMemes() {
   var savedMems = loadFromStorage('url');
+ console.log(savedMems)
   var strHtmls = savedMems.map((savedUrl, idx) => {
     var img = new Image();
     img.src = savedUrl;
     return `
-  <img class="meme-image" crossorigin="anonymous" onclick="onEditSavedMeme('${idx}')" src="${img.src}">
+    <div class="place-my-meme">
+    <img class="img-in-frame" crossorigin="anonymous" src="${img.src}" >
+    <img class="img-frame" src="./img/btn/Asset 2.png"  >
+    <img class="edit-btn-meme" onclick="onEditSavedMeme('${idx}')" src="./img/btn/Asset 3.png"/>
+    <img class="delete-btn-meme" onclick="onDeleteMeme('${idx}')" src="./img/btn/Asset 4.png"/>
+    </div>
     `
   })
+  if (savedMems.length===0){
+    strHtmls = `<h3 class="title-not-display">No Meme for dispaly</h3>`
+    document.querySelector('.my-memes').innerHTML = strHtmls;
+    return;
+  } 
   document.querySelector('.my-memes').innerHTML = strHtmls.join('');
 }
 function onCreateMeme(elMemeId) {
@@ -149,6 +160,7 @@ function toggleMenu() {
 function onSaveCanvas() {
   saveCanvas()
   renderMyMemes()
+  onGoToMyMemes()
 }
 function onEditSavedMeme(sevedMemeIdx) {
   var savedMems = loadFromStorage('memes');
@@ -161,4 +173,9 @@ function onEditSavedMeme(sevedMemeIdx) {
 function onShare(elLink) {
   var imgContent = gElCanvas.toDataURL('image/jpeg')
   elLink.href = imgContent
+}
+
+function onDeleteMeme(memeIdx) {
+  deleteMeme(memeIdx)
+  renderMyMemes()
 }
