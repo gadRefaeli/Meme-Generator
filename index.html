@@ -13,17 +13,17 @@
 <body onload="onInit()">
   <div class="main-screen" onclick="toggleMenu()"></div>
   <nav class="nav-bar ">
-    <div class="logo" onclick="onGoToGallery()"">Memegen</div>
+    <div class="logo cursor" onclick="onGoToGallery()"">Memegen</div>
     <ul class=" nav-bar-pages main-nav">
-      <li onclick="onGoToGallery(), toggleMenu()">Gallery</li>
-      <li onclick="onGoToEdit(), toggleMenu()">Edit</li>
-      <li onclick="onGoToMyMemes(),toggleMenu()">My Memes</li>
+      <li class="nav-bar-gallery" onclick="onGoToGallery(), toggleMenu()">Gallery</li>
+      <li class="nav-bar-edit" onclick="onGoToEdit(), toggleMenu()">Edit</li>
+      <li class="nav-bar-my-memes" onclick="onGoToMyMemes(),toggleMenu()">My Memes</li>
       </ul>
       <button class="btn-menu" onclick="toggleMenu()"><img src="./img/btn/hamburger-01.svg" height="20" /></button>
   </nav>
   <div class="gallery-header">
     <h3>Welcome to Memes Generator</h3>
-    <p>You can create beautiful meme with The best technology</p>
+    <p>You can create beautiful meme with the best technology</p>
     <h4 class="start">Click on Image to start</h4>
   </div>
   <div class="gallery"></div>
@@ -40,24 +40,24 @@
       </section>
 
       <section class="section-2">
-        <button onclick="onAddLine()"><img src=".\img\btn\image19.png" height="70" /></button>
-        <button onclick="onDeleteLine()"><img src=".\img\btn\image18.png" height="70" /></button>
-        <button onclick="onMoveLine()"><img src=".\img\btn\image17.png" height="70" /></button>
+        <button class="cursor" onclick="onAddLine()"><img src=".\img\btn\image19.png" height="80" /></button>
+        <button class="cursor" onclick="onDeleteLine()"><img src=".\img\btn\image18.png" height="80" /></button>
+        <button class="cursor" onclick="onMoveLine()"><img src=".\img\btn\image17.png" height="80" /></button>
       </section>
 
       <section class="section-3">
-        <button onclick="onSetAlign('left')"><img src="img\btn\image15.png" height="60" /></button>
-        <button onclick="onSetAlign('center')"><img src="img\btn\image14.png" height="60" /></button>
-        <button onclick="onSetAlign('right')"><img src="img\btn\image16.png" height="60" /></button>
-        <button onclick="onResizeTxt(10)"><img src="img\btn\image13.png" height="60" /></button>
-        <button onclick="onResizeTxt(-10)"> <img src="img\btn\image12.png" height="60" /></button>
-        <button onclick="onSetLineHight(10)"><img src="img\btn\image.png" height="60" /></button>
-        <button onclick="onSetLineHight(-10)"><img src="img\btn\image11.png" height="60" /></button>
+        <button class="cursor" onclick="onSetAlign('left')"><img src="img\btn\image15.png" height="60" /></button>
+        <button class="cursor" onclick="onSetAlign('center')"><img src="img\btn\image14.png" height="60" /></button>
+        <button class="cursor" onclick="onSetAlign('right')"><img src="img\btn\image16.png" height="60" /></button>
+        <button class="cursor" onclick="onResizeTxt(10)"><img src="img\btn\image13.png" height="60" /></button>
+        <button class="cursor" onclick="onResizeTxt(-10)"> <img src="img\btn\image12.png" height="60" /></button>
+        <button class="cursor" onclick="onSetLineHight(10)"><img src="img\btn\image.png" height="60" /></button>
+        <button class="cursor" onclick="onSetLineHight(-10)"><img src="img\btn\image11.png" height="60" /></button>
         <div class="select-color">
-          <img class="select-color-img" src="img\btn\image10.png" height="60" />
-          <input class="input-color" type="color" value="#ffffff" onchange="onSetColorText(this.value)">
-          <img class="select-stroke-img" src="img\btn\image9.png" height="60" />
-          <button><input class="input-sroke" type="color" value="#ffffff"
+          <img class="select-color-img cursor" src="img\btn\image10.png" height="60" />
+          <input class="input-color cursor" type="color" value="#ffffff" onchange="onSetColorText(this.value)">
+          <img class="select-stroke-img cursor" src="img\btn\image9.png" height="60" />
+          <button><input class="input-sroke cursor" type="color" value="#ffffff"
               onchange="onSetColorStroke(this.value)"></button>
         </div>
       </section>
@@ -66,16 +66,16 @@
         <div class="download">
           <a href="#" onclick="downloadCanvas(this)" download="asdsad"><img src="img\btn\image1.png" height="60" /></a>
         </div>
-        <div class="share">
+        <div class="share ">
           <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
             <input name="img" id="imgData" type="hidden" />
-            <button class="btn" type="submit"><img src="img\btn\image2.png" height="60" /></button>
-            <div class="share-container"></div>
+            <button class="btn cursor" type="submit"><img src="img\btn\image2.png" height="60" /></button>
+            <div class="share-container "></div>
           </form>
 
           <a href="#" onclick="uploadImg(this, event)"></a>
         </div>
-        <div class="save">
+        <div class="save cursor">
           <a href="#" onclick="onSaveCanvas()"><img src="img\btn\image3.png" height="60" /></a>
         </div>
       </section>
@@ -86,7 +86,7 @@
     </div>
   </div>
   <div class="my-memes">
-    <h3>No Meme for dispaly</h3>
+    <h3 class="title-not-display">No Meme for dispaly</h3>
   </div>
 
 

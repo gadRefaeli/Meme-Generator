@@ -6,22 +6,22 @@ var gKeywords = { 'happy': 12, 'funny puk': 1 }
 var gImgs = [
   { id: 1, url: './img/meme-imgs/1.jpg', keywords: ['Trump'] },
   { id: 2, url: './img/meme-imgs/2.jpg', keywords: ['Dog'] },
-  { id: 3, url: './img/meme-imgs/3.jpg', keywords: ['baby', 'Dog'] },
-  { id: 4, url: './img/meme-imgs/4.jpg', keywords: ['cat'] },
-  { id: 5, url: './img/meme-imgs/5.jpg', keywords: ['strong','baby'] },
-  { id: 6, url: './img/meme-imgs/6.jpg', keywords: ['hair'] },
-  { id: 7, url: './img/meme-imgs/7.jpg', keywords: ['scary','baby'] },
-  { id: 8, url: './img/meme-imgs/8.jpg', keywords: ['hat'] },
-  { id: 9, url: './img/meme-imgs/9.jpg', keywords: ['Cute kid'] },
+  { id: 3, url: './img/meme-imgs/3.jpg', keywords: ['Baby', 'Dog'] },
+  { id: 4, url: './img/meme-imgs/4.jpg', keywords: ['Cat'] },
+  { id: 5, url: './img/meme-imgs/5.jpg', keywords: ['Strong','Baby'] },
+  { id: 6, url: './img/meme-imgs/6.jpg', keywords: ['Hair'] },
+  { id: 7, url: './img/meme-imgs/7.jpg', keywords: ['Scary','Baby'] },
+  { id: 8, url: './img/meme-imgs/8.jpg', keywords: ['Hat'] },
+  { id: 9, url: './img/meme-imgs/9.jpg', keywords: ['Cute','kid'] },
   { id: 10, url: './img/meme-imgs/10.jpg', keywords: ['Obama'] },
-  { id: 11, url: './img/meme-imgs/11.jpg', keywords: ['kiss'] },
-  { id: 12, url: './img/meme-imgs/12.jpg', keywords: ['surprised'] },
-  { id: 13, url: './img/meme-imgs/13.jpg', keywords: ['wine'] },
-  { id: 14, url: './img/meme-imgs/14.jpg', keywords: ['Scary man'] },
-  { id: 15, url: './img/meme-imgs/15.jpg', keywords: ['Long hair'] },
-  { id: 16, url: './img/meme-imgs/16.jpg', keywords: ['funny'] },
-  { id: 17, url: './img/meme-imgs/17.jpg', keywords: ['Vladimir Putin'] },
-  { id: 18, url: './img/meme-imgs/18.jpg', keywords: ['toy'] }
+  { id: 11, url: './img/meme-imgs/11.jpg', keywords: ['Kiss'] },
+  { id: 12, url: './img/meme-imgs/12.jpg', keywords: ['Surprised'] },
+  { id: 13, url: './img/meme-imgs/13.jpg', keywords: ['Wine'] },
+  { id: 14, url: './img/meme-imgs/14.jpg', keywords: ['Scary','Man'] },
+  { id: 15, url: './img/meme-imgs/15.jpg', keywords: ['Long','Hair'] },
+  { id: 16, url: './img/meme-imgs/16.jpg', keywords: ['Funny'] },
+  { id: 17, url: './img/meme-imgs/17.jpg', keywords: ['Vladimir','Putin'] },
+  { id: 18, url: './img/meme-imgs/18.jpg', keywords: ['Toy'] }
 
 ];
 var gMeme = {};

@@ -49,6 +49,7 @@ function renderCanvas() {
 
 }
 function renderSetting() {
+  if(!gCorentMeme){return}
   var strHtmls = `
     <input class="input-txt" type="text" id="text" value="${gCorentMeme.lines[gCorentMeme.selectedLineIdx].txt}" onkeyup="onSetText(this.value)">
     `
@@ -56,7 +57,6 @@ function renderSetting() {
 }
 function renderMyMemes() {
   var savedMems = loadFromStorage('url');
- console.log(savedMems)
   var strHtmls = savedMems.map((savedUrl, idx) => {
     var img = new Image();
     img.src = savedUrl;
@@ -64,21 +64,19 @@ function renderMyMemes() {
     <div class="place-my-meme">
     <img class="img-in-frame" crossorigin="anonymous" src="${img.src}" >
     <img class="img-frame" src="./img/btn/Asset 2.png"  >
-    <img class="edit-btn-meme" onclick="onEditSavedMeme('${idx}')" src="./img/btn/Asset 3.png"/>
-    <img class="delete-btn-meme" onclick="onDeleteMeme('${idx}')" src="./img/btn/Asset 4.png"/>
+    <img class="edit-btn-meme cursor" onclick="onEditSavedMeme('${idx}')" src="./img/btn/Asset 3.png"/>
+    <img class="delete-btn-meme cursor" onclick="onDeleteMeme('${idx}')" src="./img/btn/Asset 4.png"/>
     </div>
     `
   })
   if (savedMems.length===0){
-    strHtmls = `<h3 class="title-not-display">No Meme for dispaly</h3>`
+    strHtmls = `<h3 class="title-not-display">No saved memes</h3>`
     document.querySelector('.my-memes').innerHTML = strHtmls;
     return;
   } 
   document.querySelector('.my-memes').innerHTML = strHtmls.join('');
 }
 function onCreateMeme(elMemeId) {
-
-
   gImg = document.getElementById(`${elMemeId}`);
   createMeme(elMemeId);
   gCorentMeme = getMeme();
@@ -94,18 +92,30 @@ function onGoToGallery() {
   document.querySelector('.gallery').style.display = "flex";
   document.querySelector('.gallery-header').style.display = "flex";
   document.querySelector('.my-memes').style.display = "none";
+  document.querySelector('.nav-bar-gallery').style.color="#a04f90";
+  document.querySelector('.nav-bar-edit').style.color="white"
+  document.querySelector('.nav-bar-my-memes').style.color="white"
 }
 function onGoToEdit() {
   document.querySelector('.edit-meme').style.display = "flex";
   document.querySelector('.gallery').style.display = "none";
   document.querySelector('.gallery-header').style.display = "none";
   document.querySelector('.my-memes').style.display = "none";
+  document.querySelector('.nav-bar-gallery').style.color="white";
+  document.querySelector('.nav-bar-edit').style.color="#a04f90"
+  document.querySelector('.nav-bar-my-memes').style.color="white"
+  renderSetting()
+ 
+
 }
 function onGoToMyMemes() {
   document.querySelector('.my-memes').style.display = "flex";
   document.querySelector('.edit-meme').style.display = "none";
   document.querySelector('.gallery').style.display = "none";
   document.querySelector('.gallery-header').style.display = "none";
+  document.querySelector('.nav-bar-gallery').style.color="white";
+  document.querySelector('.nav-bar-edit').style.color="white"
+  document.querySelector('.nav-bar-my-memes').style.color="#a04f90"
 }
 function downloadCanvas(elLink) {
   const data = gCanvas.toDataURL()
@@ -178,4 +188,5 @@ function onShare(elLink) {
 function onDeleteMeme(memeIdx) {
   deleteMeme(memeIdx)
   renderMyMemes()
+  renderSetting()
 }
